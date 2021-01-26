@@ -2,7 +2,7 @@
 ## 前言
 简介：
 1.搜索框，可自定义提示文字，可点更多
-2.关键字调地图api得到搜索列表
+2.关键字调地图api得到搜索列表，取消按钮可自由变色
 3.历史搜索、热门搜索
 
 ## 有疑问
@@ -451,3 +451,15 @@ import aSearchList from '@/components/ay-search/ay-search-list.vue';
  	<!-- #endif -->
  </view>
  ```
+ 引入阿里矢量图，复制示例源码`/style` 下的`/iconfont.css`至项目根目录的 `/style` 文件夹下
+ 
+ 页面`App.vue` 引入css
+ ```
+ <style>
+ 	/*每个页面公共css */
+ 	@import './style/iconfont.css';
+ </style>
+ ```
+ 
+ ## 参考插件
+[图片资源](https://ext.dcloud.net.cn/plugin?id=91)
