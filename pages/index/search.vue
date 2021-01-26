@@ -1,97 +1,26 @@
-
-## 前言
-简介：
-1.搜索框，可自定义提示文字，可点更多
-2.关键字调地图api得到搜索列表
-3.历史搜索、热门搜索
-
-## 有疑问
-微信搜索“慢慢向好”小程序，找客服反馈，相应问题。
-				  
-
-## 素材
-[图片资源](https://pixabay.com)
- 
-## 开始使用
-
-## 使用搜索框的展示
-
-下载源码解压，复制`/components` 下的组件至项目根目录的 `/components` 文件夹下
-
-
-`index.vue`的`script`加入如下部分：
-```
-import search from '@/components/ay-search/search.vue';
-	export default {
-		components: {
-			search,
-
-		},
-		data() {
-			return {
-				themeColor:'#33CCCC',
-				isToAll : true ,
-			}
-		},
-		onLoad() {
-			let that = this;
-
-		},
-
-		methods: {
-			toSearchFun(e) {
-				
-			},
-			toAllFun(){
-				
-			},
-		}
-	}
-```
-
-
-`index.vue`的`template`加入如下部分：
-```
-<view >
-		<search preholder="搜索附近位置" @toSearch="toSearchFun"></search>
-		<search preholder="搜索附近位置2" :isToAll="isToAll" :themeColor="themeColor" @toSearch="toSearchFun" @toAll="toAllFun"></search>
+<template>
+	<view >
+		
+		<aSearchList 
+		
+		:placeholder="defaultKw"
+		:kwList="kwList" 
+		:hotKwList="hotKwList" 
+		@clearkwList="clearkwList"
+		@setListByKw="setListByMap"
+		@doSearch="doSearch"></aSearchList>
+		<!--  #ifdef H5  -->
+		<view class="map">
+			<baidu-map class="map-contain" @ready="mapReady">
+			
+			</baidu-map>
+		</view>
+		<!-- #endif -->
 	</view>
+</template>
 
-```
-
-引入阿里矢量图，复制示例源码`/style` 下的`/iconfont.css`至项目根目录的 `/style` 文件夹下
-
-页面`App.vue` 引入css
-```
-<style>
-	/*每个页面公共css */
-	@import './style/iconfont.css';
-</style>
-```
-
-## 使用关键字得到搜索列表的展示，包括历史搜索和热门搜索
-## 说明项目下载，填入自己的高德key，微信小程序即可运行，其余也是配置好按理也行
-## 前期准备
-[高德地图申请key](https://lbs.amap.com/api/wx/guide/create-project/config-project)
-[百度地图申请H5的ak](http://lbsyun.baidu.com/apiconsole/key)
-
-H5引用百度地图搜关键字需执行命令 
-
-```
-npm install vue-baidu-map --save
-
-```
-
-下载js：[高德地图微信小程序js下载地址](https://lbs.amap.com/api/wx/gettingstarted)
-
-微信小程序后台，需设置服务器域名
-```
-https://restapi.amap.com
-
-```
-新建`search.vue`的`script`加入如下部分：
-```
-import aSearchList from '@/components/ay-search/ay-search-list.vue';
+<script>
+	import aSearchList from '@/components/ay-search/ay-search-list.vue';
 	
 	//#ifdef MP-WEIXIN
 	var amapFile = require('../../js/gaodemap/amap.js');
@@ -426,28 +355,7 @@ import aSearchList from '@/components/ay-search/ay-search-list.vue';
 			},
 		}
 	}
-
-
-```
-
-`search.vue`的`template`加入如下部分：
- ```
- <view >
- 	
- 	<aSearchList 
- 	
- 	:placeholder="defaultKw"
- 	:kwList="kwList" 
- 	:hotKwList="hotKwList" 
- 	@clearkwList="clearkwList"
- 	@setListByKw="setListByMap"
- 	@doSearch="doSearch"></aSearchList>
- 	<!--  #ifdef H5  -->
- 	<view class="map">
- 		<baidu-map class="map-contain" @ready="mapReady">
- 		
- 		</baidu-map>
- 	</view>
- 	<!-- #endif -->
- </view>
- ```
+</script>
+<style>
+	
+</style>

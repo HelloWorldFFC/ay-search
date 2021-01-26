@@ -1,5 +1,5 @@
 <template>
-	<view >
+	<view>
 		<search preholder="搜索附近位置" @toSearch="toSearchFun"></search>
 		<search preholder="搜索附近位置2" :isToAll="isToAll" :themeColor="themeColor" @toSearch="toSearchFun" @toAll="toAllFun"></search>
 	</view>
@@ -14,8 +14,8 @@
 		},
 		data() {
 			return {
-				themeColor:'#33CCCC',
-				isToAll : true ,
+				themeColor: '#33CCCC',
+				isToAll: true,
 			}
 		},
 		onLoad() {
@@ -25,15 +25,19 @@
 
 		methods: {
 			toSearchFun(e) {
-				
+
+				uni.navigateTo({
+					url: '/pages/index/search'
+				})
+
 			},
-			toAllFun(){
-				
+			toAllFun() {
+
 			},
 		}
 	}
 </script>
 
 <style lang="scss">
-	
+
 </style>
