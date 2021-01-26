@@ -462,4 +462,4 @@ import aSearchList from '@/components/ay-search/ay-search-list.vue';
  ```
  
  ## 参考插件
-[图片资源](https://ext.dcloud.net.cn/plugin?id=91)
+[参考插件](https://ext.dcloud.net.cn/plugin?id=91)
